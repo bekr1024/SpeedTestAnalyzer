@@ -1,0 +1,22 @@
+Notes for Raspberry Pi usage:
+
+======================= BEFORE RUNNING SPEEDTEST PROGRAM =======================
+
+Run the following commands in terminal:
+
+  sudo apt-get update
+  sudo apt-get upgrade
+
+  sudo apt-get python3-pip
+  sudo pip3 install speedtest-cli
+
+
+Next, test speedtest by running the command:
+
+  speedtest-cli
+
+
+This should give internet speed data. If not, check that the previous commands
+were executed successfully.
+
+================================================================================
