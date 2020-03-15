@@ -16,7 +16,7 @@ import matplotlib.lines as mlines
 
 # Reading a csv file from my desktop. Figure out how to find this csv
 # file on whatever Raspberry Pi this code downloads onto.
-df = pd.read_csv("C:\Users\BenK\Desktop\\testData.csv")
+df = pd.read_csv("/home/pi/Desktop/SpeedTestAnalyzer/speedtest/speedtest.csv")
 
 # Instantiate plots
 ax = plt.subplot(111)
@@ -24,15 +24,15 @@ ax = plt.subplot(111)
 # Reads different columns from csv file. Can't figure out yet how to
 # format the X-axis for date or time yet. To do soon!
 x1 = df['Date']
-x2 = df[' Time']
-y1 = df[' Ping (ms)']
-y2 = df[' Download (Mbit/s)']
-y3 = df[' Upload (Mbit/s)']
+x2 = df['Time']
+y1 = df['Ping (ms)']
+y2 = df['Download (Mbit/s)']
+y3 = df['Upload (Mbit/s)']
 
 
-ax.plot(y1, 'r', linewidth=2)
-ax.plot(y2, 'g', linewidth=3)
-ax.plot(y3, 'b', linewidth=4)
+ax.plot(y1, 'r', linewidth=1)
+ax.plot(y2, 'g', linewidth=1)
+ax.plot(y3, 'b', linewidth=1)
 ax.set_title('Daily Internet Speed')
 
 # Adds legend for the different colored lines
@@ -45,7 +45,7 @@ plt.legend(handles=[red_line, green_line, blue_line], bbox_to_anchor=(1,1), loc=
 plt.show()
 
 #newtime1 = cp.time("12:02")
-#newtime1.print_time()
+
 
 #newtime2 = cp.time("12:59")
 #newtime2.print_time()
