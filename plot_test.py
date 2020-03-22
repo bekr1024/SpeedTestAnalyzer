@@ -44,8 +44,8 @@ red_line = mlines.Line2D([], [], color='red', linewidth=2, label='Ping (ms)')
 green_line = mlines.Line2D([], [], color='green', linewidth=3, label='Download (Mbits/s)')
 blue_line = mlines.Line2D([], [], color='blue', linewidth=4, label='Upload (Mbits/s)')
 
-plt.legend(handles=[red_line, green_line, blue_line], 
-           bbox_to_anchor=(1,1), loc='upper left', 
+plt.legend(handles=[red_line, green_line, blue_line],
+           bbox_to_anchor=(1,1), loc='upper left',
             bbox_transform=plt.gcf().transFigure)
 
 plt.gcf().autofmt_xdate()
