@@ -20,4 +20,4 @@ try:
 except:
     pass
 
-f.write('{},{},{},{},{}\r\n'.format(time.strftime('%Y-%m-%d'), time.strftime('%H:%M'), ping, download, upload))
+f.write('{},{},{},{},{}\r\n'.format(time.strftime('%Y-%m-%d %H:%M'), ping, download, upload))
