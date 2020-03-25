@@ -16,8 +16,8 @@ upload = upload[0].replace(',', '.')
 try:
     f = open('/home/pi/Desktop/SpeedTestAnalyzer/speedtest/speedtest.csv', 'a+')
     if os.stat('/home/pi/Desktop/SpeedTestAnalyzer/speedtest/speedtest.csv').st_size == 0:
-            f.write('Date,Time,Ping (ms),Download (Mbit/s),Upload (Mbit/s)\r\n')
+            f.write('DateTime,Ping (ms),Download (Mbit/s),Upload (Mbit/s)\r\n')
 except:
     pass
 
-f.write('{},{},{},{},{}\r\n'.format(time.strftime('%Y-%m-%d %H:%M'), ping, download, upload))
+f.write('{},{},{},{}\r\n'.format(time.strftime('%Y-%m-%d %H:%M'), ping, download, upload))

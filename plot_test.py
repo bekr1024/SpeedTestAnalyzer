@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
+import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.patches as mpatches
@@ -26,12 +27,12 @@ ax = plt.subplot(111)
 # Reads different columns from csv file. Can't figure out yet how to
 # format the X-axis for date or time yet. To do soon!
 x1 = df['DateTime']
-y1 = df[' Ping (ms)']
-y2 = df[' Download (Mbit/s)']
-y3 = df[' Upload (Mbit/s)']
+y1 = df['Ping (ms)']
+y2 = df['Download (Mbit/s)']
+y3 = df['Upload (Mbit/s)']
 
 for i in range(len(x1)):
-    x1[i] = datetime.datetime.strptime(x2[i], "%Y-%m-%d %H:%M")
+    x1[i] = datetime.datetime.strptime(x1[i], "%Y-%m-%d %H:%M")
 
 
 ax.plot(x1, y1, 'r', linewidth=2)
