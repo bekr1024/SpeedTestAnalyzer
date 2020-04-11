@@ -20,3 +20,23 @@ This should give internet speed data. If not, check that the previous commands
 were executed successfully.
 
 ================================================================================
+
+==================== CHANGING CRONTAB TO AUTOMATE PROGRAM ======================
+
+Run the following command in the Raspberry Pi terminal:
+
+  crontab -e
+
+It may have you select an editor. Select your editor of choice. ( I prefer nano)
+Once in the crontab file, go to the very bottom and write the following lines
+verbatim.
+
+*/15 * * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/SpeedTest.py
+2 0 * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/plot_test.py
+
+
+The first line gives a speedtest every 15 minutes, the second line
+produces and saves a .png image file for the previous day's plot at 12:02 am
+every day. You may edit these schedules at your own discretion.
+
+================================================================================
