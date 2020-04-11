@@ -32,7 +32,7 @@ Once in the crontab file, go to the very bottom and write the following lines
 verbatim.
 
 */15 * * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/SpeedTest.py
-2 0 * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/plot_test.py
+2 0 * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/plot_test.py $(date -d "yesterday 13:00" +%Y-%m-%d)
 
 
 The first line gives a speedtest every 15 minutes, the second line
