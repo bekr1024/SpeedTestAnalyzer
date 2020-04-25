@@ -19,6 +19,7 @@ ax = plt.subplot(111)
 #spec_date = sys.argv[1]
 #spec_date = "2018-04-22" # This is test data for Desktop testData.csv
 spec_date = datetime.datetime.strftime(datetime.datetime.now() - datetime.timedelta(1),'%Y-%m-%d')
+#spec_date = datetime.datetime.strftime(datetime.datetime.now(),"%Y-%m-%d")
 
 # Creates new arrays to place only date-specific data.
 x1 = []
@@ -63,5 +64,5 @@ filename = "/home/pi/Desktop/SpeedTestAnalyzer/speedtest/" + str(spec_date) + ".
 
 plt.savefig(filename, dpi=400, facecolor='w', edgecolor='w',
                   orientation='portrait', papertype='a0', format='png',
-                  transparent=False, bbox_inches=None, pad_inches=0.1,
-                  frameon=None)
+                  transparent=False, bbox_inches=None, pad_inches=0.1,)
+                  #frameon=None)
