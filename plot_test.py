@@ -16,21 +16,22 @@ df = pd.read_csv("/home/pi/Desktop/SpeedTestAnalyzer/speedtest/speedtest.csv")
 ax = plt.subplot(111)
 
 # Read in specified date for plot evaluation.
-spec_date = sys.argv[1]
+#spec_date = sys.argv[1]
 #spec_date = "2018-04-22" # This is test data for Desktop testData.csv
+spec_date = datetime.datetime.strftime(datetime.datetime.now() - datetime.timedelta(1),'%Y-%m-%d')
 
 # Creates new arrays to place only date-specific data.
 x1 = []
 y1 = []
 y2 = []
-y3 = [] 
+y3 = []
 
 for i in range(len(df['DateTime'])):
     j = 0
     if(df['DateTime'][i][0:10:] == spec_date):
         x1.append(df['DateTime'][i])
         y1.append(df['Ping (ms)'][i])
-        y2.append(df['Download (Mbit/s)'][i]) 
+        y2.append(df['Download (Mbit/s)'][i])
         y3.append(df['Upload (Mbit/s)'][i])
         j += 1
 
@@ -53,6 +54,8 @@ plt.legend(handles=[red_line, green_line, blue_line],
             bbox_transform=plt.gcf().transFigure)
 
 plt.gcf().autofmt_xdate()
+xfmt = mdates.DateFormatter('%H:%M')
+ax.xaxis.set_major_formatter(xfmt)
 
 # Filenamefor image to save to. Windows filepath is for testing on my laptop.
 #filename = "C:\\Users\\BenK\\Desktop\\" + str(spec_date) + ".png"

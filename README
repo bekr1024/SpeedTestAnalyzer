@@ -32,11 +32,17 @@ Once in the crontab file, go to the very bottom and write the following lines
 verbatim.
 
 */15 * * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/SpeedTest.py
-2 0 * * * python3 /home/pi/Desktop/SpeedTestAnalyzer/plot_test.py $(date -d "yesterday 13:00" +%Y-%m-%d)
 
 
-The first line gives a speedtest every 15 minutes, the second line
-produces and saves a .png image file for the previous day's plot at 12:02 am
-every day. You may edit these schedules at your own discretion.
+/* This will give a program that runs every 15 minutes.
+
+Next, create a bash file that runs in cron.daily:
+  cd /etc/cron.daily
+  sudo nano ./PlotTest
+
+when the file opens, write the following script:
+  python3 /home/pi/Desktop/SpeedTestAnalyzer/plot_test.py
+
+This should make the program create a new .png graphic each day for the previous day.
 
 ================================================================================
