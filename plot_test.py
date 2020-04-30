@@ -7,6 +7,7 @@ import matplotlib.dates as mdates
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 import sys
+import os
 
 # Filepath for reading CSV data. Windows filepath is for testing on my laptop.
 #df = pd.read_csv("C:\Users\BenK\Desktop\\testData.csv")
@@ -57,12 +58,18 @@ plt.legend(handles=[red_line, green_line, blue_line],
 plt.gcf().autofmt_xdate()
 xfmt = mdates.DateFormatter('%H:%M')
 ax.xaxis.set_major_formatter(xfmt)
+#possibly useful to use logarithmic scale
+#plt.yscale("log")
 
 # Filenamefor image to save to. Windows filepath is for testing on my laptop.
 #filename = "C:\\Users\\BenK\\Desktop\\" + str(spec_date) + ".png"
 filename = "/home/pi/Desktop/SpeedTestAnalyzer/speedtest/" + str(spec_date) + ".png"
 
+# If filename already exists, remove old file to save new one.
+if os.path.isfile(filename):
+    os.system("sudo rm " + filename)
 plt.savefig(filename, dpi=400, facecolor='w', edgecolor='w',
                   orientation='portrait', papertype='a0', format='png',
-                  transparent=False, bbox_inches=None, pad_inches=0.1,)
-                  #frameon=None)
+                  transent=False, bbox_inches=None, pad_inches=0.1,)
+                  #frameon=None)par
+#plt.show()
